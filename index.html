@@ -15,19 +15,28 @@
   </head>
   <body>
     <div class="container">
-      <h1>Vanilla Weather</h1>
-      <form>
-        <div class="row">
-          <div class="col-9">
-            <input
-              type="search"
-              placeholder="Enter a City"
-              class="search-input"
-            />
+      <div class="weather">
+        <h1>Vanilla Weather</h1>
+        <form>
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="Enter a City"
+                class="search-input"
+              />
+            </div>
+            <div class="col-3 p-0">
+              <input
+                type="submit"
+                class="btn btn-outline-info w-100"
+                value="Search"
+              />
+            </div>
           </div>
-        </div>
-      </form>
-      <script src="src/index.js"></script>
+        </form>
+      </div>
     </div>
+    <script src="src/index.js"></script>
   </body>
 </html>
