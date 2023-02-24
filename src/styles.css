@@ -2,3 +2,6 @@ h1 {
   text-align: 0 auto;
   color: black;
 }
+li {
+  list-style: none;
+}
