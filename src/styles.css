@@ -5,3 +5,9 @@ h1 {
 li {
   list-style: none;
 }
+ul {
+  padding: 5px;
+}
+.weatherForecast {
+  color: black;
+}
