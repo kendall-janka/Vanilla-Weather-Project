@@ -12,70 +12,99 @@
     />
     <link rel="stylesheet" href="src/styles.css" />
     <script
-  src="https://kit.fontawesome.com/d43a10294f.js"
-  crossorigin="anonymous"
-></script>;
+      src="https://kit.fontawesome.com/d43a10294f.js"
+      crossorigin="anonymous"
+    ></script>
+    ;
     <title>VanillaWeather</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather">
-        <div class="card border-info mb-3" style="max-width: 75%">
+      <div
+        class="weather"
+        style="max-width: 65%; display: block; margin: 0 auto"
+      >
+        <div class="card border-info mb-3">
           <div class="card-header">
             <form>
               <div class="row" max-width="75%">
-                <div class="col-9">
+                <div class="col-5 col-md-5 col-lg-4">
                   <input
+                    id="inputCity"
                     type="search"
                     placeholder="Enter a City"
                     class="search-input"
                   />
                 </div>
-                <div class="col-2 p-0">
+                <div class="col-5 col-md-4 col-lg-2 p-0">
                   <input
+                    id="searchButton"
                     type="submit"
                     class="btn btn-outline-info w-100"
                     value="Search"
                   />
+                  <div class="col-2 col-md-3 col-lg-6"></div>
                 </div>
               </div>
             </form>
           </div>
           <div class="card-body text-info">
-            <div class = row>
-              <div class = "col-6">
-                  <h1 class="City">New York</h1> 
-              </div>
-              <div class = "col-6">
-                   <h1 class = "CurrentTemp"><i class="fa-solid fa-cloud-sun"></i>  25°F</h1>
-            </div>     
             <div class="row">
-              <div class = "col-12">
-                  <ul>
-                    <li>Friday, 12:11pm, Partly Cloudy </li>
-                    <li>Humidity: 55%</li>
-                    <li>Wind Speed: 5mph</li>
-                  </ul>
+              <div class="col-8">
+                <h1 class="City">New York</h1>
+              </div>
+              <div class="col-4">
+                <h1 class="CurrentTemp">
+                  <i class="fa-solid fa-cloud-sun"></i> 25°F
+                </h1>
               </div>
             </div>
-          
+            <div class="row">
+              <div class="col-12">
+                <ul>
+                  <li>Friday, 12:11pm, Partly Cloudy</li>
+                  <li>Humidity: 55%</li>
+                  <li>Wind Speed: 5mph</li>
+                </ul>
+              </div>
+            </div>
+
             <div class="weatherForecast row">
-              <div class = "col-2">
-                Friday <i class="fa-solid fa-cloud-sun"></i>18°/28°
+              <div class="col-1"></div>
+
+              <div class="col-2 forecastColumn">
+                Friday <br />
+                <i class="fa-solid fa-cloud-sun"></i> <br />
+                18°/28°
               </div>
-              <div class = "col-2">
-                Saturday <i class="fa-solid fa-cloud-sun"></i>15°/30°
+
+              <div class="col-2 forecastColumn">
+                Saturday <br />
+                <i class="fa-solid fa-snowflake"></i><br />
+                15°/30°
               </div>
-              <div class = "col-2">
-                Sunday <i class="fa-solid fa-cloud-sun"></i>12°/20°
+
+              <div class="col-2 forecastColumn">
+                Sunday <br />
+                <i class="fa-regular fa-sun"></i><br />
+                12°/20°
               </div>
-              <div class = "col-2">
-                Monday <i class="fa-solid fa-cloud-sun"></i>15°/40°
+
+              <div class="col-2 forecastColumn">
+                Monday <br />
+                <i class="fa-solid fa-cloud-sun"></i><br />
+                15°/40°
               </div>
-              <div class = "col-2">
-                Friday <i class="fa-solid fa-cloud-sun"></i>18°/35°
+
+              <div class="col-2 forecastColumn">
+                Friday<br />
+                <i class="fa-solid fa-cloud-sun"></i><br />
+                18°/35°
               </div>
+
+              <div class="col-1"></div>
             </div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,12 +2,22 @@ h1 {
   text-align: 0 auto;
   color: black;
 }
+#searchButton {
+  line-height: 1;
+}
+#inputCity {
+  border-radius: 0.25rem;
+  max-width: 100%;
+}
 li {
   list-style: none;
 }
 ul {
-  padding: 5px;
+  padding: 15px;
 }
 .weatherForecast {
   color: black;
+}
+.forecastColumn {
+  text-align: center;
 }
