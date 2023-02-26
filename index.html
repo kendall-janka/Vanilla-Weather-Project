@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -20,10 +21,7 @@
   </head>
   <body>
     <div class="container">
-      <div
-        class="weather"
-        style="max-width: 75%; display: block; margin: 0 auto"
-      >
+      <div class="weather">
         <div class="card border-info mb-3">
           <div class="card-header">
             <form>
@@ -55,7 +53,8 @@
               </div>
               <div class="col-4">
                 <h1 class="CurrentTemp">
-                  <i class="fa-solid fa-cloud-sun"></i> 25°F
+                  <i class="fa-solid fa-cloud-sun"></i>
+                  <span id="currentTemperature"> 25 </span>° F
                 </h1>
               </div>
             </div>
