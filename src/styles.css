@@ -1,6 +1,14 @@
+.container {
+  background-color: azure;
+  box-sizing: border-box;
+  margin: 60px auto;
+  max-width: 800px;
+}
+
 h1 {
   text-align: 0 auto;
   color: black;
+  margin-left: 4px;
 }
 #searchButton {
   line-height: 1;
