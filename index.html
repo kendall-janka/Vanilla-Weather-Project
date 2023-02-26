@@ -49,11 +49,13 @@
           <div class="card-body text-info">
             <div class="row">
               <div class="col-8">
-                <h1 class="City">New York</h1>
+                <h1 class="City">
+                  <span id="city"></span>
+                </h1>
               </div>
               <div class="col-4">
                 <h1 class="CurrentTemp">
-                  <i class="fa-solid fa-cloud-sun"></i>
+                  <i class="fa-solid fa-cloud-sun" id="currentIcon"></i>
                   <span id="currentTemperature"> 25 </span>° F
                 </h1>
               </div>
@@ -61,9 +63,12 @@
             <div class="row">
               <div class="col-12">
                 <ul>
-                  <li>Friday, 12:11pm, Partly Cloudy</li>
-                  <li>Humidity: 55%</li>
-                  <li>Wind Speed: 5mph</li>
+                  <li>
+                    Friday, 12:11pm,
+                    <span id="currentConditions">Partly Cloudy</span>
+                  </li>
+                  <li>Humidity: <span id="humidity"> 55</span>%</li>
+                  <li>Wind Speed: <span id="windSpeed"> 5 </span> mph</li>
                 </ul>
               </div>
             </div>
