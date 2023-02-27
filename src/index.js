@@ -1,12 +1,10 @@
 let apiKey = "4900o839bet5aaf3e9a5c07fb3d6686a";
-let apiUrl =
-  "https://api.shecodes.io/weather/v1/current?query=${New York}&key=4900o839bet5aaf3e9a5c07fb3d6686a&units=imperial";
-console.log(apiUrl);
+let town = "New York";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${town}&key=${apiKey}&units=imperial`;
+
 axios.get(apiUrl).then(displayTemperature);
 
 function displayTemperature(response) {
-  console.log(response.data.temperature.current);
-
   let temperatureElement = document.querySelector("#currentTemperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
 
@@ -21,7 +19,6 @@ function displayTemperature(response) {
 
   let windSpeedElement = document.querySelector("#windSpeed");
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
-  console.log(response.data.wind.speed);
 
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
