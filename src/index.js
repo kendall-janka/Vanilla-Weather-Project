@@ -1,9 +1,3 @@
-let apiKey = "4900o839bet5aaf3e9a5c07fb3d6686a";
-let town = "Detroit";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${town}&key=${apiKey}&units=imperial`;
-
-axios.get(apiUrl).then(displayTemperature);
-
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#currentTemperature");
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
@@ -55,3 +49,21 @@ function formatDate(timestamp) {
 
   return `${day} ${hours}:${minutes}`;
 }
+
+let form = document.querySelector("#searchForm");
+form.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#inputCity");
+  search(cityInputElement.value);
+}
+
+function search(town) {
+  let apiKey = "4900o839bet5aaf3e9a5c07fb3d6686a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${town}&key=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+search("New York");
