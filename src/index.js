@@ -35,9 +35,7 @@ function formatDate(timestamp) {
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  //if (hours>12){
-  //hours = ${hours}-12;
-  // }
+  hours = ((hours + 11) % 12) + 1;
 
   let minutes = date.getMinutes();
   if (minutes < 10) {
@@ -54,5 +52,5 @@ function formatDate(timestamp) {
   ];
   let day = days[date.getDay()];
 
-  return `${day}${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
