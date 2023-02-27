@@ -1,5 +1,5 @@
 let apiKey = "4900o839bet5aaf3e9a5c07fb3d6686a";
-let town = "New York";
+let town = "Detroit";
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${town}&key=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
@@ -23,8 +23,12 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
 
-  //let currentIconElement = document.querySelector("#currentIcon");
-  //currentIconElement.innerHTML = response.data.condition.icon_url;
+  let currentIconElement = document.querySelector("#currentIcon");
+  currentIconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  currentIconElement.setAttribute("alt", response.data.condition.description);
 }
 function formatDate(timestamp) {
   let date = new Date(timestamp);
