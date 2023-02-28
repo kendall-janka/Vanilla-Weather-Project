@@ -13,11 +13,36 @@ h1 {
   color: black;
   margin-left: 4px;
 }
-#unitType{
+#units{
   font-weight: 600;
   font-size:large;
   color:gray;
   vertical-align: super;
+
+}
+#celsLink{
+  color:rgb(73, 61, 152);
+}
+#fahrLink{
+  color:rgb(73, 61, 152);
+}
+
+#fahrLink.active{
+color:black;
+cursor:default;
+}
+
+#fahrLink.active:hover{
+  text-decoration:none;
+}
+
+#celsLink.active{
+color:black;
+cursor:default;
+}
+
+#celsLink.active:hover{
+  text-decoration:none;
 }
 
 

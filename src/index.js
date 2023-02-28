@@ -23,10 +23,16 @@ function displayTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   currentIconElement.setAttribute("alt", response.data.condition.description);
+
+  fahrenheitTemperature = response.data.temperature.current;
 }
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
+  let ampm = "pm";
+  if (hours < 12) {
+    ampm = "am";
+  }
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -47,7 +53,7 @@ function formatDate(timestamp) {
   ];
   let day = days[date.getDay()];
 
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes} ${ampm}`;
 }
 
 let form = document.querySelector("#searchForm");
@@ -65,5 +71,30 @@ function search(town) {
 
   axios.get(apiUrl).then(displayTemperature);
 }
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  fahrLink.classList.add("active");
+  celsLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#currentTemperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currentTemperature");
+  fahrLink.classList.remove("active");
+  celsLink.classList.add("active");
+  let celsiusTemperature = Math.round((fahrenheitTemperature - 32) * 0.5556);
+  temperatureElement.innerHTML = celsiusTemperature;
+}
+
+let fahrenheitTemperature = "null";
+
+let fahrenheitLink = document.querySelector("#fahrLink");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsLink");
+celsiusLink.addEventListener("click", convertToCelsius);
 
 search("New York");
