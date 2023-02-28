@@ -56,9 +56,6 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes} ${ampm}`;
 }
 
-let form = document.querySelector("#searchForm");
-form.addEventListener("submit", handleSubmit);
-
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#inputCity");
@@ -88,6 +85,9 @@ function convertToCelsius(event) {
   let celsiusTemperature = Math.round((fahrenheitTemperature - 32) * 0.5556);
   temperatureElement.innerHTML = celsiusTemperature;
 }
+
+let form = document.querySelector("#searchForm");
+form.addEventListener("submit", handleSubmit);
 
 let fahrenheitTemperature = "null";
 
