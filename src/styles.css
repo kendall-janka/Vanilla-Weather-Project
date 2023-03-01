@@ -12,6 +12,7 @@ h1 {
   text-align: 0 auto;
   color: black;
   margin-left: 4px;
+  line-height: 2.5;
 }
 #units{
   font-weight: 600;
