@@ -56,6 +56,38 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes} ${ampm}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class = "row"> <div class = col-1></div>`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="col-2 forecastColumn">
+                ${day} <br />
+                <img
+                  id="forecastIcon"
+                  alt=""
+                  width="36"
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+                />
+                <br />
+                <span id="forecastTemps">
+                  <span id="forecastMinTemp">18° 
+                  </span>
+                    <span id="forecastMaxTemp">28° 
+                    </span>
+                </span>
+          
+        </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#inputCity");
@@ -96,5 +128,7 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsLink");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+displayForecast();
 
 search("New York");
