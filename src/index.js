@@ -76,10 +76,10 @@ function displayForecast(response) {
   console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class = "row" id="forecastRow"> <div class = col-1></div>`;
+  let forecastHTML = `<div class = "row" id="forecastRow">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
@@ -128,32 +128,7 @@ function search(town) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  fahrLink.classList.add("active");
-  celsLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#currentTemperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#currentTemperature");
-  fahrLink.classList.remove("active");
-  celsLink.classList.add("active");
-  let celsiusTemperature = Math.round((fahrenheitTemperature - 32) * 0.5556);
-  temperatureElement.innerHTML = celsiusTemperature;
-}
-
 let form = document.querySelector("#searchForm");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitTemperature = "null";
-
-let fahrenheitLink = document.querySelector("#fahrLink");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink = document.querySelector("#celsLink");
-celsiusLink.addEventListener("click", convertToCelsius);
 
 search("New York");
