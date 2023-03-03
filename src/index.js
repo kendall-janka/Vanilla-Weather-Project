@@ -25,7 +25,17 @@ function displayTemperature(response) {
   currentIconElement.setAttribute("alt", response.data.condition.description);
 
   fahrenheitTemperature = response.data.temperature.current;
+  getForecast(response.data.coordinates);
 }
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "4900o839bet5aaf3e9a5c07fb3d6686a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
+  console.log(`apiUrl: ` + apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -56,7 +66,8 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes} ${ampm}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class = "row" id="forecastRow"> <div class = col-1></div>`;
   let days = ["Thu", "Fri", "Sat", "Sun", "Sat"];
@@ -128,7 +139,5 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsLink");
 celsiusLink.addEventListener("click", convertToCelsius);
-
-displayForecast();
 
 search("New York");
